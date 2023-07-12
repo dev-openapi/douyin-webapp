@@ -77,11 +77,11 @@ func (c *oauthService) GetAccessToken(ctx context.Context, in *GetAccessTokenReq
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }
@@ -119,11 +119,11 @@ func (c *oauthService) RenewRefreshToken(ctx context.Context, in *RenewRefreshTo
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }
@@ -154,11 +154,11 @@ func (c *oauthService) GetClientToken(ctx context.Context, in *GetClientTokenReq
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }
@@ -199,11 +199,11 @@ func (c *oauthService) RefreshAccessToken(ctx context.Context, in *RefreshAccess
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }

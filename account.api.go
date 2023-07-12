@@ -80,11 +80,11 @@ func (c *accountService) GetUserInfo(ctx context.Context, in *GetUserInfoReq, op
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }
@@ -115,11 +115,11 @@ func (c *accountService) FansCheck(ctx context.Context, in *FansCheckReq, opts .
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }

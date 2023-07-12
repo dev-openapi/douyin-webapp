@@ -79,11 +79,11 @@ func (c *videoService) CreateImageText(ctx context.Context, in *CreateImageTextR
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }
@@ -124,11 +124,11 @@ func (c *videoService) UploadImage(ctx context.Context, in *UploadImageReq, opts
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
-	resp, err := opt.DoRequest(opt.client, req)
+	resp, err := opt.DoRequest(ctx, opt.client, req)
 	if err != nil {
 		return nil, err
 	}
-	err = opt.DoResponse(resp, &res)
+	err = opt.DoResponse(ctx, resp, &res)
 	return &res, err 
 
 }
